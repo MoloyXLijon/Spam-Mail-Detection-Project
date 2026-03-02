@@ -104,12 +104,10 @@ export default function Features() {
           {features.map((feature) => (
             <div
               key={feature.title}
-              className={`group relative p-6 rounded-2xl bg-neutral-900 border border-neutral-800 hover:border-neutral-700 transition-all hover:-translate-y-1`}
-            >
+              className={`group relative p-6 rounded-2xl bg-neutral-900 border border-neutral-800 hover:border-neutral-700 transition-all hover:-translate-y-1`}>
               {/* Icon */}
               <div
-                className={`w-12 h-12 rounded-xl ${feature.bg} border ${feature.border} flex items-center justify-center mb-4`}
-              >
+                className={`w-12 h-12 rounded-xl ${feature.bg} border ${feature.border} flex items-center justify-center mb-4`}>
                 <div className={`bg-gradient-to-br ${feature.color} bg-clip-text text-transparent`}>
                   {feature.icon}
                 </div>

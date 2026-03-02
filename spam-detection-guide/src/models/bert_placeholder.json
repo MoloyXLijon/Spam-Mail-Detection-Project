@@ -1,0 +1,6 @@
+{
+  "model": "bert",
+  "dataset": "huggingface_sms",
+  "epochs": 3,
+  "status": "trained"
+}

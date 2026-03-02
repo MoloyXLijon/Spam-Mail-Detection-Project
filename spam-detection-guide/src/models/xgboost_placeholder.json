@@ -1,0 +1,6 @@
+{
+  "model": "xgboost",
+  "dataset": "huggingface_sms",
+  "epochs": 1,
+  "status": "trained"
+}

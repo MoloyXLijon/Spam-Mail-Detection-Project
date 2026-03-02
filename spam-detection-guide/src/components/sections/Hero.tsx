@@ -71,8 +71,7 @@ export default function Hero() {
               ].map((color, i) => (
                 <div
                   key={i}
-                  className={`w-7 h-7 rounded-full ${color} border-2 border-neutral-950 flex items-center justify-center text-white text-xs font-bold`}
-                >
+                  className={`w-7 h-7 rounded-full ${color} border-2 border-neutral-950 flex items-center justify-center text-white text-xs font-bold`}>
                   {String.fromCharCode(65 + i)}
                 </div>
               ))}

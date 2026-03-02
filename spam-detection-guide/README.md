@@ -181,6 +181,98 @@ pytest spam-detection-guide/tests/ -v
 
 ---
 
+## ✅ Local Build & Run (development)
+
+Follow these steps to run the frontend (Next.js) and backend (FastAPI) locally for development and testing.
+
+- Frontend (Next.js)
+
+    1. Open a terminal and go to the frontend folder:
+
+    ```bash
+    cd spam-detection-guide
+    ```
+
+    2. Install Node dependencies (run once):
+
+    ```bash
+    npm install
+    # or: pnpm install / yarn
+    ```
+
+    3. Start the dev server (hot reload):
+
+    ```bash
+    npm run dev
+    # opens at http://localhost:3000 (or the next available port)
+    ```
+
+    4. Build for production and start:
+
+    ```bash
+    npm run build
+    npm start
+    ```
+
+    Notes / Troubleshooting:
+    - If Next reports a lock file error (.next/dev/lock), stop any running `next dev` process and remove the lock:
+
+    ```powershell
+    # stop process listening on port 3000 (Windows PowerShell)
+    $p=(Get-NetTCPConnection -LocalPort 3000 -ErrorAction SilentlyContinue).OwningProcess; if ($p) { Stop-Process -Id $p -Force }
+    Remove-Item spam-detection-guide\.next\dev\lock -Force -ErrorAction SilentlyContinue
+    ```
+
+    - If you see "Module not found: Can't resolve '@/components/...'", ensure `spam-detection-guide/src/components` exists and contains the components expected by `src/app/page.tsx`.
+
+- Backend (Python / FastAPI)
+
+    1. Create and activate a Python virtual environment (recommended):
+
+    ```powershell
+    python -m venv .venv
+    .venv\Scripts\Activate.ps1
+    ```
+
+    2. Install Python dependencies:
+
+    ```bash
+    python -m pip install --upgrade pip
+    pip install -r spam-detection-guide/requirements.txt
+    ```
+
+    3. Run the API with auto-reload (development):
+
+    ```bash
+    python -m uvicorn api.app:app --reload --port 8000
+    ```
+
+    4. Test the API (example):
+
+    ```bash
+    curl -X POST http://localhost:8000/predict -H "Content-Type: application/json" -d '{"text":"Free money"}'
+    ```
+
+    Notes:
+    - Run frontend and backend in separate terminals so both servers are active.
+
+## 🧪 Tests
+
+Run Python tests:
+
+```bash
+pytest spam-detection-guide/tests/ -v
+```
+
+Run frontend tests (if available):
+
+```bash
+cd spam-detection-guide
+npm test
+```
+
+---
+
 ## 🌐 API Endpoints
 
 | Endpoint | Method | Description |
