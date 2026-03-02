@@ -1,3 +1,36 @@
+# Spam Detection Guide (Minimal)
+
+This folder contains a minimal Python scaffold for the spam-detection backend used by the project README examples.
+
+Quick start:
+
+1. Create & activate a virtualenv in the repository root:
+
+```powershell
+python -m venv .venv
+.venv\Scripts\Activate.ps1
+```
+
+2. Install Python dependencies:
+
+```powershell
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+```
+
+3. Run the API:
+
+```powershell
+python -m uvicorn spam-detection-guide.api.app:app --reload --port 8000
+```
+
+4. Run a quick trainer example:
+
+```powershell
+python spam-detection-guide/src/training/trainer.py --model xgboost --dataset huggingface_sms
+```
+
+This scaffold is intentionally minimal — replace the placeholder trainer and predictor with your full implementations when available.
 # 📧 Spam Mail Detection Project
 
 A comprehensive, production-ready spam email detection system combining traditional machine learning, deep learning (BERT), and ensemble methods — with a FastAPI REST API, Docker deployment, and full evaluation pipeline.
